@@ -1,4 +1,4 @@
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
@@ -9,10 +9,14 @@ class Settings(BaseSettings):
     database_username: str
     secret_key: str
     algorithm: str
-    access_token_expire_minutes: int
 
     class Config:
         env_file = ".env"
+
+    @classmethod
+    def __post_root_validators__(cls):
+        cls.access_token_expire_minutes = int(cls.access_token_expire_minutes)
+
 
 
 settings = Settings()

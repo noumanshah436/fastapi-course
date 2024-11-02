@@ -1,0 +1,31 @@
+mkdir .venv
+pipenv install
+pipenv shell
+
+pipenv install fastapi[all]
+pipenv install sqlalchemy
+pipenv install psycopg2
+pipenv install python-jose
+pipenv install passlib
+pipenv install alembic
+ 
+****************************************
+
+
+Created user:
+
+"id": 1,
+"email": "nouman@gmail.com",
+"p a s s w o r d": "nouman"
+
+****************************************
+
+'orm_mode' has been renamed to 'from_attributes'
+
+****************************************
+
+apply database migrations:
+
+$ alembic upgrade head
+
+****************************************

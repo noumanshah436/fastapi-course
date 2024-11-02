@@ -1,0 +1,20 @@
+$ python
+>>> import pytz
+>>> from datetime import datetime, timezone
+>>> 
+>>> dt = datetime(2024, 11, 2, 14, 27, 37, 864569, tzinfo=timezone.utc)
+>>> 
+>>> # Convert to Asia/Karachi timezone
+>>> karachi_tz = pytz.timezone("Asia/Karachi")
+>>> karachi_time = dt.astimezone(karachi_tz)
+>>> 
+>>> # Format to human-readable string
+>>> readable_karachi_time = karachi_time.strftime("%Y-%m-%d %H:%M:%S %Z")
+>>> print(readable_karachi_time)
+2024-11-02 19:27:37 PKT
+>>> 
+
+
+
+
+

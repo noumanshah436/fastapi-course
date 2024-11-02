@@ -24,8 +24,8 @@ def get_db():
         db.close()
 
 
+# setup for default postgres driver (used raw sql  ) 
 # while True:
-
 #     try:
 #         conn = psycopg2.connect(host='localhost', database='fastapi', user='postgres',
 #                                 password='password123', cursor_factory=RealDictCursor)
