@@ -15,17 +15,19 @@ it will create alembic folder for migrations,
 
 Now setup alembic to run our migrations:
 
-1) We need to set traget_metadata variable of alembic/env.py file to our Base class 
+1) We need to set traget_metadata variable of `alembic/env.py` file to our Base class 
 
 from app.models import Base
+
 target_metadata = Base.metadata
 
-Note: we are inporting Base from models.py file instead if database.py, so that it can read all our models
+Note: we are importing Base from models.py file instead if database.py, so that it can read all our models
 
 2) Update the sqlalchemy.url in alembic.ini file with our db file
 
 Note: it's better to override this variable in `alembic/env.py` file instead of writing in alembic.ini file
 
+So in `alembic/env.py` add these lines:
 
 from app.config import settings
 
