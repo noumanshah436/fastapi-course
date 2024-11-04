@@ -6,7 +6,8 @@ from .database import engine
 from .routers import post, user, auth, vote
 from .config import settings
 
-
+# generates all the sql models models
+# As we now have setup alembic, we don't need this anymore
 # models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()

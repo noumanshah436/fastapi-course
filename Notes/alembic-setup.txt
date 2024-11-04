@@ -1,0 +1,49 @@
+
+
+$ pipenv install alembic
+
+For help
+alembic -h
+
+**********************************
+
+$ alembic init alembic
+
+it will create alembic folder for migrations,
+
+**********************************
+
+Now setup alembic to run our migrations:
+
+1) We need to set traget_metadata variable of alembic/env.py file to our Base class 
+
+from app.models import Base
+target_metadata = Base.metadata
+
+Note: we are inporting Base from models.py file instead if database.py, so that it can read all our models
+
+2) Update the sqlalchemy.url in alembic.ini file with our db file
+
+Note: it's better to override this variable in `alembic/env.py` file instead of writing in alembic.ini file
+
+
+from app.config import settings
+
+config.set_main_option(
+    "sqlalchemy.url", f'postgresql+psycopg2://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}')
+
+3) Create revisions based of our models in models.py file
+alembic revision --autogenerate -m "First revision"
+
+autogenerate flag: it will look for the declarative base and auto-generate the migrations based on the changes
+
+4) apply migrations
+alembic upgrade head
+
+or we can also specify the version upto which version we want to apply migrations
+alembic upgrade version_number  (or first unique chars of the revision name)
+
+5) Now if we want to add or change something, we will re run the revision command and it will generate migration for that changes.
+
+alembic revision --autogenerate -m "Add phone number to users model"
+alembic upgrade head
