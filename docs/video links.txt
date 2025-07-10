@@ -9,7 +9,7 @@ video
 
 Skipped tests: 14:17:21
 
-starting from CI/CD pipeline : 17:43:37
+Next -> Deploy to Heroku using CI/CD  -  18:34:33
 
 **********************************************
 
