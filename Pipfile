@@ -10,6 +10,8 @@ python-jose = "*"
 passlib = "*"
 psycopg2 = "*"
 alembic = "*"
+pydantic = {extras = ["email"], version = "*"}
+email-validator = "*"
 
 [dev-packages]
 
